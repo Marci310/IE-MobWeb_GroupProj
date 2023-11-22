@@ -1,3 +1,3 @@
-# fitizens
+# Fitizens Data Collection App
 
-A new Flutter project.
+![UI_image](App_UI.png)
