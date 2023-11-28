@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
-import 'vision_detector_views/pose_detector_view.dart';
+import 'screens/vision_detector/vision_detector_views/pose_detector_view.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Home(),
     );
@@ -18,15 +20,17 @@ class MyApp extends StatelessWidget {
 }
 
 class Home extends StatelessWidget {
+  const Home({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Google ML Kit Demo App'),
+        title: const Text('Fitizens Workout App'),
         centerTitle: true,
         elevation: 0,
       ),
-      body: SafeArea(
+      body: const SafeArea(
         child: Center(
           child: SingleChildScrollView(
             child: Padding(
@@ -34,9 +38,21 @@ class Home extends StatelessWidget {
               child: Column(
                 children: [
                   ExpansionTile(
-                    title: const Text('Vision APIs'),
+                    title: Text('Connections Page'),
+                    children: [
+                      CustomCard('Scanner', PoseDetectorView()),
+                    ],
+                  ),
+                  ExpansionTile(
+                    title: Text('Recording Page'),
                     children: [
                       CustomCard('Pose Detection', PoseDetectorView()),
+                    ],
+                  ),
+                  ExpansionTile(
+                    title: Text('Load Data Page'),
+                    children: [
+                      CustomCard('File Loading', PoseDetectorView()),
                     ],
                   ),
                   SizedBox(
@@ -57,24 +73,26 @@ class CustomCard extends StatelessWidget {
   final Widget _viewPage;
   final bool featureCompleted;
 
-  const CustomCard(this._label, this._viewPage, {this.featureCompleted = true});
+  const CustomCard(this._label, this._viewPage,
+      {Key? key, this.featureCompleted = true})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Card(
       elevation: 5,
-      margin: EdgeInsets.only(bottom: 10),
+      margin: const EdgeInsets.only(bottom: 10),
       child: ListTile(
         tileColor: Theme.of(context).primaryColor,
         title: Text(
           _label,
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          style:
+              const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         onTap: () {
           if (!featureCompleted) {
-            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                content:
-                    const Text('This feature has not been implemented yet')));
+            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                content: Text('This has not been implemented yet')));
           } else {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => _viewPage));

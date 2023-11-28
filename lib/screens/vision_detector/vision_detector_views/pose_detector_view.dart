@@ -1,12 +1,14 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../google_mlkit_pose_detection.dart';
+import '../../../google_mlkit_pose_detection.dart';
 
 import 'detector_view.dart';
 import 'pose_painter.dart';
 
 class PoseDetectorView extends StatefulWidget {
+  const PoseDetectorView({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() => _PoseDetectorViewState();
 }
