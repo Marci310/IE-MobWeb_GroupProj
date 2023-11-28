@@ -1,7 +1,7 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import '../coordinates_translator.dart';
-import '../google_mlkit_pose_detection.dart';
+import '../../../coordinates_translator.dart';
+import '../../../google_mlkit_pose_detection.dart';
 
 class PosePainter extends CustomPainter {
   PosePainter(
