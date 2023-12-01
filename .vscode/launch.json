@@ -1,0 +1,28 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "IE_MobWeb_GroupProj-carlodev",
+            "cwd": "IE_MobWeb_GroupProj-carlodev",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "IE_MobWeb_GroupProj-carlodev (profile mode)",
+            "cwd": "IE_MobWeb_GroupProj-carlodev",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "IE_MobWeb_GroupProj-carlodev (release mode)",
+            "cwd": "IE_MobWeb_GroupProj-carlodev",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}
