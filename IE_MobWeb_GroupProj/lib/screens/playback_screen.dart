@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'load_data_screen.dart'; // Make sure this is imported
-import 'video_feed.dart'; // Make sure this is imported
+import 'package:provider/provider.dart';
+import '/recordings_model.dart'; // Import the model
 
 class PlaybackScreen extends StatelessWidget {
+  final TextEditingController _textController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,7 +13,7 @@ class PlaybackScreen extends StatelessWidget {
         title: const Text('Playback'),
         leading: BackButton(
           onPressed: () {
-            Navigator.pop(context); // This should just pop the current screen
+            Navigator.pop(context); // Pops the current screen
           },
         ),
       ),
@@ -19,10 +21,11 @@ class PlaybackScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const SizedBox(
+            SizedBox(
               width: 250,
               child: TextField(
-                decoration: InputDecoration(
+                controller: _textController,
+                decoration: const InputDecoration(
                   hintText: 'File Name',
                 ),
               ),
@@ -31,7 +34,11 @@ class PlaybackScreen extends StatelessWidget {
               height: 15,
             ),
             ElevatedButton(
-              onPressed: () => context.pushReplacement('/viewsaves'),
+              onPressed: () {
+                Provider.of<RecordingsModel>(context, listen: false)
+                    .addRecording(_textController.text);
+                context.pushReplacement('/viewsaves');
+              },
               child: const Text('Save'),
             ),
             const SizedBox(
