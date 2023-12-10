@@ -1,3 +1,4 @@
+import 'package:fitizens/camera_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -32,6 +33,11 @@ class AppRouter {
         name: 'viewpreviousvideos',
         path: '/viewprev',
         builder: (context, state) => FileViewerScreen(),
+      ),
+      GoRoute(
+        name: 'camera',
+        path: '/camera',
+        builder: (context, state) => CameraScreen(),
       ),
     ],
     errorPageBuilder: (context, state) {

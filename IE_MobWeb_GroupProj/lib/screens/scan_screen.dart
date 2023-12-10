@@ -61,6 +61,18 @@ class _ScanScreenState extends State<ScanScreen> {
                 ),
                 child: const Text('View Previous Workouts'),
               ),
+              const SizedBox(height: 20), // Spacing between buttons
+              ElevatedButton(
+                onPressed: () => context.push('/camera'),
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+                ),
+                child: const Text('Camera'),
+              )
             ],
           ),
         ),
