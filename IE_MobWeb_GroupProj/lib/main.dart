@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 import 'navigation/Router.dart';
+import 'recordings_model.dart';
 
 void main() {
-  runApp(MainApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => RecordingsModel(),
+      child: const MainApp(),
+    ),
+  );
 }
 
 class MainApp extends StatelessWidget {
