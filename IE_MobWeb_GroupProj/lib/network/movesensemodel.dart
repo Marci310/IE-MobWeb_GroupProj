@@ -6,7 +6,7 @@ import 'device.dart';
 import 'package:mdsflutter/Mds.dart';
 import 'deviceconnectionstatus.dart';
 
-class AppModel extends ChangeNotifier {
+class MovesenseModel extends ChangeNotifier {
   final Set<Device> _deviceList = Set();
   Device _device = Device('', '');
   bool _isScanning = false;

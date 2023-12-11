@@ -12,13 +12,13 @@ class ScanButton extends StatefulWidget {
 }
 
 class _ScanButtonState extends State<ScanButton> {
-  late AppModel model;
+  late MovesenseModel model;
 
   @override
   void initState() {
     super.initState();
     initPlatformState();
-    model = Provider.of<AppModel>(context, listen: false);
+    model = Provider.of<MovesenseModel>(context, listen: false);
     model.onDeviceMdsConnected((device) => {
           model.set(device),
           const SnackBar(content: Center(child: Text('Device Connected'))),
@@ -46,22 +46,19 @@ class _ScanButtonState extends State<ScanButton> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text('Mds Flutter Example'),
-        ),
-        body: Consumer<AppModel>(
-          builder: (context, model, child) {
-            return Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                ElevatedButton(
-                  onPressed: onScanButtonPressed,
-                  child: Text(model.scanButtonText),
-                )
-              ],
-            );
-          },
-        ));
+    return SizedBox(
+      width: 200,
+      height: 40,
+      child: Scaffold(body: Consumer<MovesenseModel>(
+        builder: (context, model, child) {
+          return Center(
+            child: ElevatedButton(
+              onPressed: onScanButtonPressed,
+              child: Text(model.scanButtonText),
+            ),
+          );
+        },
+      )),
+    );
   }
 }
