@@ -13,7 +13,7 @@ dependencies:
   mdsflutter: ^2.0.0
   shared_preferences: ^2.2.2
   permission_handler: ^10.4.3
-  provider: ^6.0.4
+  provider: ^6.1.1
 
 dev_dependencies:
   flutter_test:
