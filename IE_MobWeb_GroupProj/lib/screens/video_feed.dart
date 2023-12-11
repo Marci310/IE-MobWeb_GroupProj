@@ -1,6 +1,10 @@
+import 'package:fitizens/network/devicelog.dart';
+import 'package:fitizens/network/movesensemodel.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:fitizens/network/device.dart';
 import 'playback_screen.dart';
+import 'package:provider/provider.dart';
 
 class VideoFeedScreen extends StatefulWidget {
   @override
@@ -10,7 +14,13 @@ class VideoFeedScreen extends StatefulWidget {
 class _VideoFeedScreenState extends State<VideoFeedScreen> {
   bool _record = true;
   String title = 'Start Recording';
-  String _selectedItem = 'sensor1';
+  String _selectedItem = 'accelerometer';
+  late AppModel model;
+  @override
+  void initState() {
+    super.initState();
+    model = Provider.of<AppModel>(context, listen: false);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,27 +62,18 @@ class _VideoFeedScreenState extends State<VideoFeedScreen> {
                   }
                 },
                 child: Text(title.toString())),
-            Container(
-              margin: const EdgeInsets.all(10.0),
-              color: Colors.grey,
-              width: 250.0,
-              height: 250.0,
-              child: const Center(
-                  child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text('Sensor Log'),
-                ],
-              )),
-            ),
             DropdownButton<String>(
               disabledHint: Text(_selectedItem),
               value: _selectedItem,
               onChanged: _record
                   ? (value) => setState(() => _selectedItem = value!)
                   : null,
-              items: <String>['sensor1', 'sensor2']
-                  .map<DropdownMenuItem<String>>((item) {
+              items: <String>[
+                'accelerometer',
+                'heartrate',
+                'tempearure',
+                'gyroscope'
+              ].map<DropdownMenuItem<String>>((item) {
                 return DropdownMenuItem(
                   value: item,
                   child: Text(item),
@@ -83,5 +84,24 @@ class _VideoFeedScreenState extends State<VideoFeedScreen> {
         ),
       ),
     );
+  }
+
+  Widget sensorLog() {
+    if (_record) {
+      return Container(
+        margin: const EdgeInsets.all(10.0),
+        color: Colors.grey,
+        width: 250.0,
+        height: 250.0,
+        child: const Center(
+            child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Log'),
+          ],
+        )),
+      );
+    } else
+      return DeviceInteractionWidget(model.device, _selectedItem);
   }
 }
