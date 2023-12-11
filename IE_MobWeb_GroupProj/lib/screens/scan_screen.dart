@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'video_feed.dart';
 import 'load_data_screen.dart';
+import 'package:fitizens/network/connectbutton.dart';
+import 'package:fitizens/network/movesensemodel.dart';
 
 class ScanScreen extends StatefulWidget {
   @override
@@ -25,17 +27,7 @@ class _ScanScreenState extends State<ScanScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              ElevatedButton(
-                onPressed: () => print('connecting to device)'),
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30.0),
-                  ),
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
-                ),
-                child: const Text('Connect'),
-              ),
+              ScanButton(),
               const SizedBox(
                   height: 20), // Spacing between dropdown and buttons
               ElevatedButton(
