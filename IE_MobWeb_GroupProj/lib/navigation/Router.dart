@@ -37,7 +37,9 @@ class AppRouter {
       GoRoute(
         name: 'camera',
         path: '/camera',
-        builder: (context, state) => CameraScreen(),
+        builder: (context, state) => CameraScreen(
+          cameras: [], // need to pass in cameras
+        ),
       ),
     ],
     errorPageBuilder: (context, state) {
