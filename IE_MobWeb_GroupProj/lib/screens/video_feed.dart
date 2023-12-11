@@ -15,11 +15,11 @@ class _VideoFeedScreenState extends State<VideoFeedScreen> {
   bool _record = true;
   String title = 'Start Recording';
   String _selectedItem = 'accelerometer';
-  late AppModel model;
+  late MovesenseModel model;
   @override
   void initState() {
     super.initState();
-    model = Provider.of<AppModel>(context, listen: false);
+    model = Provider.of<MovesenseModel>(context, listen: false);
   }
 
   @override

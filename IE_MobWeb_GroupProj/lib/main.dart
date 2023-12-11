@@ -1,3 +1,4 @@
+import 'package:fitizens/network/movesensemodel.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
@@ -7,12 +8,15 @@ import 'package:mdsflutter/Mds.dart';
 import 'recordings_model.dart';
 
 void main() {
-  runApp(
-    ChangeNotifierProvider(
-      create: (context) => RecordingsModel(),
-      child: const MainApp(),
-    ),
-  );
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: ((context) => MovesenseModel())),
+      ChangeNotifierProvider(
+        create: (context) => RecordingsModel(),
+      ),
+    ],
+    child: const MainApp(),
+  ));
 }
 
 class MainApp extends StatelessWidget {

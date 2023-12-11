@@ -16,12 +16,12 @@ class DeviceInteractionWidget extends StatefulWidget {
 }
 
 class _DeviceInteractionWidgetState extends State<DeviceInteractionWidget> {
-  late AppModel _appModel;
+  late MovesenseModel _appModel;
 
   @override
   void initState() {
     super.initState();
-    _appModel = Provider.of<AppModel>(context, listen: false);
+    _appModel = Provider.of<MovesenseModel>(context, listen: false);
     _appModel.onDeviceMdsDisconnected((device) => Navigator.pop(context));
   }
 
