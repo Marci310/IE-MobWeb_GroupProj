@@ -1,3 +1,4 @@
+import 'package:fitizens/posedetector/vision_detector/pose_detector_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'playback_screen.dart';
@@ -28,11 +29,18 @@ class _VideoFeedScreenState extends State<VideoFeedScreen> {
               color: Colors.grey,
               width: 250.0,
               height: 250.0,
-              child: const Center(
+              child: Center(
                   child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('Video'),
+                  const Text('Video'),
+                  const SizedBox(height: 20),
+                  Container(
+                      margin: EdgeInsets.all(10.0),
+                      color: Colors.grey,
+                      width: 250.0,
+                      height: 250.0,
+                      child: PoseDetectorView()),
                 ],
               )),
             ),
