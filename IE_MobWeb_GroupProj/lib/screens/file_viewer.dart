@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 
+// FileViewerScreen
+// A FileViewerScreen is a StatefulWidget that replays the previously saved video and sensor log files
+// from the Fitizens sensor. The video file and sensor log file are
+// displayed in containers. The video file can be played or stopped by pressing the play/stop
+// button. This sensor and video information is pulled from the data saved from the original video feed screen.
+
 class FileViewerScreen extends StatefulWidget {
   @override
   _FileViewerScreenState createState() => _FileViewerScreenState();
