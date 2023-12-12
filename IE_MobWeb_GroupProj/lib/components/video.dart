@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// VideoFeed displays the video feed from the camera.
 class VideoFeed extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

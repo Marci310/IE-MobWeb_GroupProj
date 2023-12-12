@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'playback_screen.dart';
 
+// VideoFeedScreen
+// A VideoFeedScreen allows the user to record a video and sensor log
+// The user will film the athlete performing the exercise and the sensor will record the data
+// The user can start and stop the recording by pressing the button
 class VideoFeedScreen extends StatefulWidget {
   @override
   _VideoFeedScreenState createState() => _VideoFeedScreenState();
