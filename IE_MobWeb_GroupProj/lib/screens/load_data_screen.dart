@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-import '/recordings_model.dart';
+import '../components/recordings_model.dart';
+
+// LoadDataScreen
+// A LoadDataScreen is a StatelessWidget that displays the list of saved recordings.
+// The user can delete a recording by pressing the delete button.
+// The user can also view the data by clicking on the recording, which will take them to the file viewer screen.
 
 class LoadDataScreen extends StatelessWidget {
   void _showDeleteConfirmation(BuildContext context, int index) {
@@ -10,7 +15,8 @@ class LoadDataScreen extends StatelessWidget {
       builder: (BuildContext context) {
         return AlertDialog(
           title: const Text('Delete Recording'),
-          content: const Text('Are you sure you want to delete this recording?'),
+          content:
+              const Text('Are you sure you want to delete this recording?'),
           actions: <Widget>[
             TextButton(
               child: const Text('Cancel'),
@@ -21,7 +27,8 @@ class LoadDataScreen extends StatelessWidget {
             TextButton(
               child: const Text('Delete'),
               onPressed: () {
-                Provider.of<RecordingsModel>(context, listen: false).deleteRecording(index);
+                Provider.of<RecordingsModel>(context, listen: false)
+                    .deleteRecording(index);
                 Navigator.of(context).pop();
               },
             ),

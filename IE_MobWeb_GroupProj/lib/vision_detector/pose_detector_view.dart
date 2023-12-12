@@ -32,13 +32,17 @@ class _PoseDetectorViewState extends State<PoseDetectorView> {
 
   @override
   Widget build(BuildContext context) {
-    return DetectorView(
-      title: 'Pose Detector',
-      customPaint: _customPaint,
-      text: _text,
-      onImage: _processImage,
-      initialCameraLensDirection: _cameraLensDirection,
-      onCameraLensDirectionChanged: (value) => _cameraLensDirection = value,
+    return SizedBox(
+      width: 250,
+      height: 250,
+      child: DetectorView(
+        title: 'Pose Detector',
+        customPaint: _customPaint,
+        text: _text,
+        onImage: _processImage,
+        initialCameraLensDirection: _cameraLensDirection,
+        onCameraLensDirectionChanged: (value) => _cameraLensDirection = value,
+      ),
     );
   }
 

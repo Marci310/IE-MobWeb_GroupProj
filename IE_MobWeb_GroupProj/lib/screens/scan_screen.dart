@@ -6,6 +6,12 @@ import 'load_data_screen.dart';
 import 'package:fitizens/network/connectbutton.dart';
 import 'package:fitizens/network/movesensemodel.dart';
 
+// ScanScreen
+// A ScanScreen is the first screen the viewer sees when they open the Fitizens app.
+// It's main functionality allows the user to connect to the Fitizens sensor before beginning a workout
+// (recorded data from the video enabled with pose detection and simultaneous to the sensor).
+// The user can also view previous workouts by pressing the view previous workouts button.
+
 class ScanScreen extends StatefulWidget {
   @override
   _ScanScreenState createState() => _ScanScreenState();

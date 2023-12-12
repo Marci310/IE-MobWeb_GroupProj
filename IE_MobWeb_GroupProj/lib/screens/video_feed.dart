@@ -1,11 +1,16 @@
 import 'package:fitizens/network/devicelog.dart';
 import 'package:fitizens/network/movesensemodel.dart';
+import 'package:fitizens/vision_detector/pose_detector_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:fitizens/network/device.dart';
 import 'playback_screen.dart';
 import 'package:provider/provider.dart';
 
+// VideoFeedScreen
+// A VideoFeedScreen allows the user to record a video and sensor log
+// The user will film the athlete performing the exercise and the sensor will record the data
+// The user can start and stop the recording by pressing the button
 class VideoFeedScreen extends StatefulWidget {
   @override
   _VideoFeedScreenState createState() => _VideoFeedScreenState();
@@ -33,19 +38,7 @@ class _VideoFeedScreenState extends State<VideoFeedScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Container(
-              margin: const EdgeInsets.all(10.0),
-              color: Colors.grey,
-              width: 250.0,
-              height: 250.0,
-              child: const Center(
-                  child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text('Video'),
-                ],
-              )),
-            ),
+            cameravie(),
             ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     backgroundColor: _record ? Colors.green : Colors.red,
@@ -62,6 +55,7 @@ class _VideoFeedScreenState extends State<VideoFeedScreen> {
                   }
                 },
                 child: Text(title.toString())),
+            sensorLog(),
             DropdownButton<String>(
               disabledHint: Text(_selectedItem),
               value: _selectedItem,
@@ -103,5 +97,24 @@ class _VideoFeedScreenState extends State<VideoFeedScreen> {
       );
     } else
       return DeviceInteractionWidget(model.device, _selectedItem);
+  }
+
+  Widget cameravie() {
+    if (_record) {
+      return Container(
+        margin: const EdgeInsets.all(10.0),
+        color: Colors.grey,
+        width: 250.0,
+        height: 250.0,
+        child: const Center(
+            child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Video'),
+          ],
+        )),
+      );
+    } else
+      return PoseDetectorView();
   }
 }
