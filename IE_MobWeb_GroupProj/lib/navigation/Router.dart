@@ -3,6 +3,14 @@ import 'package:go_router/go_router.dart';
 
 import '../screens/screens.dart';
 
+// AppRouter
+// An AppRouter is a class that creates a GoRouter instance.
+// The GoRouter instance is used to navigate between the different screens in the app.
+// Each screen is given a name and path, and a builder function that returns
+// the screen given the context and state.
+// Routes include: main, newvideo, viewsaves, viewrecording, viewpreviousvideos
+// The AppRouter also has an errorPageBuilder function that returns a MaterialPage
+
 class AppRouter {
   late final router = GoRouter(
     debugLogDiagnostics: true,
